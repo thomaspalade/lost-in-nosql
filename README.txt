@@ -1,31 +1,30 @@
-In implementarea rezolvarii am folosit urmatoarele clase:
-Tema2 
-	- clasa ce contine main-ul in care imi creez baza de date si fac citirea din fisierul de intrare
-	- tot de aici se apeleaza operatiile UPDATE, INSERT, GET, etc.
+Main 
+			- the class containing the main method where the database is created and the reading from the input file, as well
+			- buttons such as UPDATE, INSERT, GET are enabled here
 
-DataBase - clasa ce contine 2 atribute: nr_of_nodes si max_capacity.
-	 - avem un atribut de tip ArrayList <Nod> ce va contine toate nodurile bazei de date
-	 - clasa contine 2 metode: CREATEDB si SNAPSHOTDB
+DataBase 	- the class containing 2 atributes: nr_of_nodes (the actual number of nodes) and max_capacity (maximum capacity of the database).
+			- one atribute of type ArrayList <Node> containing all the nodes in our database
+			- the classes most important methods are CREATEDB and SNAPSHOTDB
 
-Nod	 - clasa ce contine 2 atribute diferite de tip ArrayList
-	 - un ArrayList ce memoreaza toate Entitatile salvate pe acel Nod
-	 - un ArrayList ce memoreaza Atributele si Instantele de pe acel nod, ce urmeaza sa fie printate in eventualitate unui apel al functiei SNAPSHOTDB
+Node 		- the class containing 2 atributes of type ArrayList
+			- the first one, an ArrayList which saves all elements of type Entitaty stored inside that Node
+			- the second one, an ArrayList which saves all elements of type Attribute and Instances stored inside that Node,
+				that are about to be printed once SNAPSHOTDB method gets called
 
+Attribute	- the class containing contine the name of an Attribute and its type (float, integer, double, char)
+			- one atribute of type Int with the type coded as 0
+			- one atribute of type String with the type coded as 1
+			- one atribute of type Float with the type coded as 2
 
-Atribut	 - contine numele unui atribut si tipul acestuia
-	 - un atribut de tip int va avea type-ul codificat ca 0
-	 - un atribut de tip String va avea type-ul codificat ca 1
-	 - un atribut de tip Float va avea type-ul codificat ca 2
+Val_Attribute 	- the class containing the attribute's type and its actual value
+				- 3 attributes (Int, String, Float)
+				- type acordingly, only one type is actually completed at a time
 
-Val_Atribut - o clasa ce contine type-ul atributului si valoarea propriu zisa
-	    - avem 3 atribute (int, String, Float)
-	    - in functie de type, un anumit atribut este completat
+Instance    	- the class that saves one ArrayList of Val_Attributes
 
-Instanta    - retine practic un ArrayList de Val_Atribut
-
-Entitate    - contine nume, RF si numarul de atribute
-	    - contine 2 ArrayList-uri (de Atribute si de Instante)
-	    - metoda Creez_Entitate
-	    - metoda Inserare_Instanta
-	    - metoda Sterge_Instanta
-	    - metoda Update_Instanta
+Entitate    	- containing name, RF and the number of atributes
+				- 2 ArrayLists (one of type Attribute and one of type Instance)
+				- method Create_Entitaty
+				- method Insert_Instance
+				- method Delete_Instance
+				- method Update_Instance
